@@ -1,0 +1,60 @@
+
+---
+
+# ============================================
+# ✅ **.gitignore for PyCharm + Python + Notebooks**
+# ============================================
+
+Copy this into `.gitignore`:
+
+```gitignore
+# -------------------------------
+# Virtual Environments
+# -------------------------------
+.venv/
+venv/
+env/
+*/.venv/
+*/venv/
+*/env/
+
+# -------------------------------
+# PyCharm & JetBrains
+# -------------------------------
+.idea/
+*.iml
+# Workspace / local history
+.idea/*
+!.idea/inspectionProfiles
+!.idea/codeStyles
+
+# -------------------------------
+# Python cache & compiled files
+# -------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# -------------------------------
+# Jupyter Notebook checkpoints
+# -------------------------------
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# -------------------------------
+# Logs / cache / temp files
+# -------------------------------
+*.log
+*.tmp
+*.DS_Store
+
+
+# -------------------------------
+# System or IDE files
+# -------------------------------
+Thumbs.db
+Desktop.ini
+
+
