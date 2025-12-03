@@ -17,7 +17,7 @@ Machine learning system to flag potentially fraudulent healthcare providers usin
 - Performance (fraud class): PR-AUC 0.785, ROC-AUC 0.967, Recall 0.74, Precision 0.63
 - Financial impact (test period):
 	- Fraud detected (TP): $32,370,000
-	- Audit overhead (FP): $300,000
+	- Audit overhead (FP): $270,000
 	- Missed fraud (FN): $11,368,000
 	- Net savings: $20,702,000 (≈10,800% ROI)
 - Top fraud indicators: max_length_of_stay, total/max inpatient payment, num_outpatient_claims, total_outpatient_payment
