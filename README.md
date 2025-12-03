@@ -35,7 +35,7 @@ Machine learning system to flag potentially fraudulent healthcare providers usin
 git clone https://github.com/yousseffkhaledd/fraud_detection_project.git
 cd fraud_detection_project
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
+.venv\\Scripts\\activate
 pip install pandas numpy scikit-learn imbalanced-learn matplotlib seaborn joblib
 ```
 
