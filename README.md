@@ -1,91 +1,52 @@
+# Healthcare Provider Fraud Detection
 
----
+## Project Overview
 
-## Features & Methodology
+Machine learning system to flag potentially fraudulent healthcare providers using provider-level patterns from Medicare claims. The goal is to help auditors focus on high-risk providers, reduce losses, and keep false alarms reasonable.
 
-### 1. Data Cleaning
-- Date parsing  
-- Handling missing values  
-- Label encoding (Yes/No → 1/0)  
-- Combining inpatient, outpatient, and beneficiary information  
+## Team Members
 
-### 2. Feature Engineering (Provider Level)
-Engineered attributes include:
-- Number of unique patients  
-- Total and average payments  
-- Outpatient and inpatient claim counts  
-- Length-of-stay statistics  
-- Maximum payment amounts  
-- Claim duration metrics  
+- Dareen: Notebook 1
+- Sara Ezzat: Notebook 2
+- Youssef Khaled: Notebook 3
+- Omar Belal: Report and Powerpoint
 
-Final dataset: **22 provider-level features**
+## Summary of Results
 
----
+- Final model: Random Forest (tuned)
+- Performance (fraud class): PR-AUC 0.785, ROC-AUC 0.967, Recall 0.74, Precision 0.63
+- Financial impact (test period):
+	- Fraud detected (TP): $32,370,000
+	- Audit overhead (FP): $300,000
+	- Missed fraud (FN): $11,368,000
+	- Net savings: $20,702,000 (≈10,800% ROI)
+- Top fraud indicators: max_length_of_stay, total/max inpatient payment, num_outpatient_claims, total_outpatient_payment
 
-## Modeling Approach
+## Reproduction Instructions
 
-### Models Trained
-- **Logistic Regression**
-- **Random Forest**
-- **Gradient Boosting**
 
-### Handling Class Imbalance
-- **SMOTE applied only to the training set**
-- Validation evaluated on original imbalanced distribution
+### Prerequisites
+- Python 3.8+
+- Jupyter Notebook or Google Colab
 
-### Metrics Used
-- Accuracy  
-- Precision  
-- Recall  
-- F1-Score  
-- ROC-AUC  
-- **Precision–Recall AUC (most important)**  
 
----
-
-## Results Summary
-
-| Model | ROC-AUC | PR-AUC | Recall | Precision |
-|-------|---------|--------|--------|-----------|
-| Logistic Regression | 0.947 | 0.775 | 0.88 | 0.53 |
-| **Random Forest** | **0.967** | **0.785** | 0.77 | 0.63 |
-| Gradient Boosting | 0.968 | 0.754 | 0.66 | **0.80** |
-
-### **Final Model: Random Forest**
-Selected for its **best PR-AUC**, strong ROC-AUC, and balanced performance metrics.
-
----
-
-## Feature Importance (Random Forest)
-Top predictors of fraud:
-1. **max_length_of_stay**
-2. total_inpatient_payment  
-3. max_inpatient_payment  
-4. num_outpatient_claims  
-5. total_outpatient_payment  
-
-Fraudulent providers tend to:
-- Exhibit unusually long patient stays  
-- Submit high-value claims  
-- Have large numbers of outpatient/inpatient claims  
-- Serve many different patients  
-
----
-
-## Error Analysis
-- **False Positives:** 46  
-  - Non-fraud providers incorrectly flagged  
-  - Impact: extra auditing (acceptable)
-
-- **False Negatives:** 23  
-  - Fraud providers missed  
-  - Most risky error type
-
----
-
-## Installation
-
-### 1. Create virtual environment
+### Setup
 ```bash
+git clone https://github.com/yousseffkhaledd/fraud_detection_project.git
+cd fraud_detection_project
 python -m venv .venv
-.venv\Scripts\activate
+source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
+pip install pandas numpy scikit-learn imbalanced-learn matplotlib seaborn joblib
+```
+
+### Run Notebooks (in order)
+```bash
+jupyter notebook notebooks/01_data_exploration_and_feature_engineering.ipynb
+jupyter notebook notebooks/02_modeling.ipynb
+jupyter notebook notebooks/03_evaluation.ipynb
+```
+
+Notes:
+- Notebook 1 produces `data/processed_data_ready_for_modeling.csv`.
+- Notebook 2 trains and saves the tuned Random Forest and test set artifacts.
+- Notebook 3 reports metrics, plots, and the financial impact figures above.
