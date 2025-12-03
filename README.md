@@ -14,7 +14,6 @@ Machine learning system to flag potentially fraudulent healthcare providers usin
 ## Summary of Results
 
 - Final model: Random Forest (tuned)
-- Performance (fraud class): PR-AUC 0.785, ROC-AUC 0.967, Recall 0.74, Precision 0.63
 - Detailed metrics by model:
 
 | Model | Precision (Fraud) | Recall (Fraud) | F1-Score (Fraud) | ROC-AUC | PR-AUC |
