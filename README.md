@@ -15,6 +15,14 @@ Machine learning system to flag potentially fraudulent healthcare providers usin
 
 - Final model: Random Forest (tuned)
 - Performance (fraud class): PR-AUC 0.785, ROC-AUC 0.967, Recall 0.74, Precision 0.63
+- Detailed metrics by model:
+
+| Model | Precision (Fraud) | Recall (Fraud) | F1-Score (Fraud) | ROC-AUC | PR-AUC |
+|-------|--------------------|----------------|------------------|---------|--------|
+| Random Forest | 0.581395 | 0.742574 | 0.652174 | 0.941987 | 0.694782 |
+| Logistic Regression | 0.481481 | 0.900990 | 0.627586 | 0.956409 | 0.763430 |
+| Gradient Boosting | 0.509317 | 0.811881 | 0.625954 | 0.947159 | 0.717192 |
+| Best Model (from tuning) | 0.555556 | 0.742574 | 0.635593 | 0.943132 | 0.710088 |
 - Financial impact (test period):
 	- Fraud detected (TP): $32,370,000
 	- Audit overhead (FP): $270,000
